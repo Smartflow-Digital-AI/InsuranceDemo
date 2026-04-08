@@ -1,42 +1,30 @@
-import Image from "next/image";
 import { AnimateIn } from "./AnimateIn";
 import { Icon } from "./Icon";
-import { FEATURES, IMAGES } from "@/lib/site-data";
+import { FEATURES } from "@/lib/site-data";
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative overflow-hidden py-20 sm:py-28">
-      <div className="absolute inset-0">
-        <Image
-          src={IMAGES.featuresBg}
-          alt={IMAGES.featuresBgAlt}
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[var(--olive)]/92" aria-hidden />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="features" className="bg-[var(--surface)] py-20 sm:py-28">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <AnimateIn>
-          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.45em] text-[var(--cream)]/70">Chapter 02</p>
-          <h2 className="mt-4 max-w-xl font-display text-4xl font-semibold leading-tight text-[var(--cream)] sm:text-5xl">
-            What you get with us
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--accent)]">The app-grade promise</p>
+          <h2 className="mt-3 max-w-3xl font-display text-5xl leading-[0.95] tracking-tight text-[var(--void)] sm:text-6xl">
+            WHAT YOU
+            <br />
+            <span className="text-[var(--muted)]">GET WITH US</span>
           </h2>
-          <p className="mt-4 max-w-lg text-[var(--cream)]/80">Four promises — no buzzwords, no widget clutter.</p>
         </AnimateIn>
 
-        <div className="mt-14 grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((f, i) => (
-            <AnimateIn key={f.text} delay={i * 0.06}>
-              <div className="flex h-full flex-col bg-[var(--olive)]/40 p-8 backdrop-blur-[2px] transition hover:bg-[var(--olive)]/55">
-                <Icon name={f.icon} size={28} color="#f7f4ec" />
-                <h3 className="mt-6 font-display text-xl font-semibold capitalize text-[var(--cream)]">{f.text}</h3>
-                <div className="mt-auto pt-8">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--cream)]/50">
-                    0{i + 1} / 04
-                  </span>
+            <AnimateIn key={f.text} delay={i * 0.05}>
+              <div className="flex h-full flex-col rounded-3xl bg-[var(--surface-card)] p-8 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.04] transition hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(91,33,182,0.2)]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--accent-soft)]">
+                  <Icon name={f.icon} size={26} color="#5b21b6" />
                 </div>
+                <h3 className="mt-6 font-display text-2xl tracking-tight text-[var(--void)]">{f.text.toUpperCase()}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--muted)]">{f.blurb}</p>
+                <div className="mt-6 h-1 w-10 rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-bright)]" />
               </div>
             </AnimateIn>
           ))}

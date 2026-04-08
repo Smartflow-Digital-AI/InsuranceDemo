@@ -5,55 +5,51 @@ import { SERVICES } from "@/lib/site-data";
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative border-t border-stone-800/10 bg-[var(--paper)] py-20 sm:py-28">
-      <div className="pointer-events-none absolute right-0 top-24 hidden h-96 w-96 border border-stone-800/5 lg:block" />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="services" className="bg-[var(--surface)] py-20 sm:py-28">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <AnimateIn>
-          <div className="flex max-w-3xl flex-col gap-4 lg:max-w-none lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div>
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.45em] text-[var(--rust)]">What we place</p>
-              <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl">
-                Cover, line by line
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--accent)]">Shop cover</p>
+              <h2 className="mt-3 font-display text-5xl leading-[0.95] tracking-tight text-[var(--void)] sm:text-6xl md:text-7xl">
+                YOUR
+                <br />
+                LINES
               </h2>
             </div>
-            <p className="max-w-md text-base leading-relaxed text-stone-600 lg:text-right">
-              Same six lines you asked for — home, motor, travel & valuables, farming, personal accident, flood — each with
-              a real photograph, not a stock icon grid.
+            <p className="max-w-md text-base leading-relaxed text-[var(--muted)] lg:pb-2 lg:text-right">
+              Home, motor, travel &amp; valuables, farming, personal accident, flood — same roster you asked for, presented
+              like a premium brand catalogue.
             </p>
           </div>
         </AnimateIn>
 
-        <div className="mt-16 space-y-16 sm:space-y-20">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {SERVICES.map((s, i) => (
-            <AnimateIn key={s.title} delay={i * 0.05}>
-              <article
-                className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-14 ${i % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""}`}
-              >
-                <div className="relative aspect-[16/10] overflow-hidden border-4 border-white shadow-lg sm:aspect-[5/3]">
-                  <Image
-                    src={s.image}
-                    alt={s.imageAlt}
-                    fill
-                    className="object-cover transition duration-700 hover:scale-[1.03]"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-900/80 to-transparent p-6 pt-20">
-                    <div className="flex items-center gap-3 text-white">
-                      <Icon name={s.icon} size={22} color="#fff" />
-                      <span className="font-mono text-[10px] uppercase tracking-[0.3em] opacity-80">Line {i + 1}</span>
-                    </div>
+            <AnimateIn key={s.title} delay={i * 0.04}>
+              <article className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-[var(--void)] sm:aspect-[4/5]">
+                <Image
+                  src={s.image}
+                  alt={s.imageAlt}
+                  fill
+                  className="object-cover transition duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
+                    <Icon name={s.icon} size={20} color="#fff" />
                   </div>
-                </div>
-                <div>
-                  <h3 className="font-display text-3xl font-semibold text-stone-900 sm:text-4xl">{s.title}</h3>
-                  <p className="mt-5 text-lg leading-relaxed text-stone-600">{s.desc}</p>
+                  <h3 className="max-w-[95%] font-display text-3xl leading-[0.95] tracking-tight text-white sm:text-4xl">
+                    {s.title.toUpperCase()}
+                  </h3>
+                  <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/75">{s.desc}</p>
                   <a
                     href="#quote"
-                    className="mt-8 inline-flex items-center gap-2 border-b-2 border-[var(--rust)] pb-1 text-sm font-bold uppercase tracking-wider text-stone-900 transition hover:text-[var(--rust)]"
+                    className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white transition hover:text-[var(--volt)]"
                   >
                     Get quote
-                    <Icon name="arrow" size={16} color="#1c1917" />
+                    <Icon name="arrow" size={14} color="currentColor" />
                   </a>
                 </div>
               </article>

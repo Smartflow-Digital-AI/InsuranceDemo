@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Newsreader } from "next/font/google";
+import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
 import { BRAND } from "@/lib/site-data";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-brico",
+const bebas = Bebas_Neue({
+  variable: "--font-bebas",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "400",
 });
 
-const newsreader = Newsreader({
-  variable: "--font-news",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -47,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${newsreader.variable} h-full scroll-smooth antialiased`}>
-      <body className="grain flex min-h-full flex-col bg-[var(--paper)] font-sans text-[var(--ink)]">
+    <html lang="en" className={`${bebas.variable} ${inter.variable} h-full scroll-smooth antialiased`}>
+      <body className="flex min-h-full flex-col bg-[var(--surface)] font-sans text-[var(--void)]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

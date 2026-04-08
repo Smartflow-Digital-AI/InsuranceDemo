@@ -9,27 +9,29 @@ export function QuoteSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="quote" className="border-t border-stone-800/10 bg-[var(--cream)] py-20 sm:py-28">
-      <div className="mx-auto max-w-xl px-4 sm:px-6 lg:max-w-lg lg:px-8">
+    <section id="quote" className="relative overflow-hidden bg-[var(--void)] py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(91,33,182,0.35),transparent)]" />
+
+      <div className="relative mx-auto max-w-lg px-5 sm:px-8">
         <AnimateIn>
           <div className="text-center">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.45em] text-[var(--rust)]">Request</p>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl">
-              Get your quote from {BRAND.wordmark}
-            </h2>
-            <p className="mt-3 text-stone-600">Tell us what you need — we&apos;ll reply with options. No obligation.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--volt)]">Start here</p>
+            <h2 className="mt-4 font-display text-5xl tracking-tight text-white sm:text-6xl">GET A QUOTE</h2>
+            <p className="mt-4 text-sm text-white/65">
+              Tell us what you need — we&apos;ll reply with options. No pressure. {BRAND.wordmark} has your back.
+            </p>
           </div>
         </AnimateIn>
 
-        <AnimateIn delay={0.12}>
-          <div className="mt-10 border-4 border-stone-900 bg-[var(--paper)] p-8 shadow-[8px_8px_0_0_rgba(28,25,23,0.12)] sm:p-10">
+        <AnimateIn delay={0.1}>
+          <div className="mt-10 rounded-3xl bg-[var(--surface-card)] p-8 shadow-2xl shadow-black/40 sm:p-10">
             {submitted ? (
-              <div className="py-10 text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center bg-[var(--rust)]">
+              <div className="py-8 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[var(--accent)]">
                   <Icon name="check" size={28} color="#fff" />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-semibold text-stone-900">Thank you</h3>
-                <p className="mt-2 text-stone-600">We&apos;ll be in touch within 24 hours.</p>
+                <h3 className="mt-6 font-display text-3xl tracking-tight text-[var(--void)]">YOU&apos;RE IN</h3>
+                <p className="mt-2 text-sm text-[var(--muted)]">We&apos;ll be in touch within 24 hours.</p>
               </div>
             ) : (
               <form
@@ -39,51 +41,51 @@ export function QuoteSection() {
                   setSubmitted(true);
                 }}
               >
+                <label className="block">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--muted)]">Full name</span>
+                  <input
+                    required
+                    type="text"
+                    name="name"
+                    autoComplete="name"
+                    placeholder="Name"
+                    className="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--surface)] px-4 py-3.5 text-[var(--void)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
+                  />
+                </label>
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="block sm:col-span-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">Name</span>
-                    <input
-                      required
-                      type="text"
-                      name="name"
-                      autoComplete="name"
-                      placeholder="Your full name"
-                      className="mt-2 w-full border-2 border-stone-800/15 bg-[var(--cream)] px-4 py-3.5 text-stone-900 outline-none transition focus:border-[var(--rust)]"
-                    />
-                  </label>
                   <label className="block">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">Phone</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--muted)]">Phone</span>
                     <input
                       required
                       type="tel"
                       name="phone"
                       autoComplete="tel"
-                      placeholder="+27 …"
-                      className="mt-2 w-full border-2 border-stone-800/15 bg-[var(--cream)] px-4 py-3.5 text-stone-900 outline-none transition focus:border-[var(--rust)]"
+                      placeholder="+27"
+                      className="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--surface)] px-4 py-3.5 text-[var(--void)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
                     />
                   </label>
                   <label className="block">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">Email</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--muted)]">Email</span>
                     <input
                       required
                       type="email"
                       name="email"
                       autoComplete="email"
-                      placeholder="you@email.com"
-                      className="mt-2 w-full border-2 border-stone-800/15 bg-[var(--cream)] px-4 py-3.5 text-stone-900 outline-none transition focus:border-[var(--rust)]"
+                      placeholder="Email"
+                      className="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--surface)] px-4 py-3.5 text-[var(--void)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
                     />
                   </label>
                 </div>
                 <label className="block">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">Type of insurance</span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--muted)]">Insurance type</span>
                   <select
                     required
                     name="type"
-                    className="mt-2 w-full appearance-none border-2 border-stone-800/15 bg-[var(--cream)] px-4 py-3.5 text-stone-900 outline-none transition focus:border-[var(--rust)]"
+                    className="mt-2 w-full appearance-none rounded-2xl border border-black/10 bg-[var(--surface)] px-4 py-3.5 text-[var(--void)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
                     defaultValue=""
                   >
                     <option value="" disabled>
-                      Select…
+                      Select
                     </option>
                     <option value="home">Home Insurance</option>
                     <option value="motor">Motor Insurance</option>
@@ -96,10 +98,10 @@ export function QuoteSection() {
                 </label>
                 <button
                   type="submit"
-                  className="mt-2 inline-flex items-center justify-center gap-2 bg-stone-900 py-4 text-sm font-bold uppercase tracking-wider text-[var(--cream)] transition hover:bg-[var(--rust)]"
+                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--void)] py-4 text-sm font-bold uppercase tracking-wider text-white transition hover:bg-[var(--accent)]"
                 >
-                  Get My Quote
-                  <Icon name="arrow" size={18} color="#f7f4ec" />
+                  Submit
+                  <Icon name="arrow" size={18} color="#fff" />
                 </button>
               </form>
             )}

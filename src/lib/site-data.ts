@@ -112,10 +112,26 @@ export const TRUST_POINTS = [
 ];
 
 export const FEATURES = [
-  { icon: "shield" as const, text: "Comprehensive cover" },
-  { icon: "wallet" as const, text: "Affordable premiums" },
-  { icon: "support" as const, text: "Expert guidance" },
-  { icon: "clock" as const, text: "Quick support" },
+  {
+    icon: "shield" as const,
+    text: "Comprehensive cover",
+    blurb: "Broad protection options matched to how you actually live.",
+  },
+  {
+    icon: "wallet" as const,
+    text: "Affordable premiums",
+    blurb: "We compare partners so you don’t overpay for peace of mind.",
+  },
+  {
+    icon: "support" as const,
+    text: "Expert guidance",
+    blurb: "Real people who explain trade-offs — no jargon, no script.",
+  },
+  {
+    icon: "clock" as const,
+    text: "Quick support",
+    blurb: "Fast answers when you’re stressed. That’s the bar.",
+  },
 ];
 
 export const TESTIMONIALS = [

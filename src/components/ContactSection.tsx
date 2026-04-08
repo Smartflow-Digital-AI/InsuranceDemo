@@ -5,7 +5,7 @@ import { BRAND, CONTACT } from "@/lib/site-data";
 const cards = [
   {
     icon: "phone" as const,
-    title: "Call us",
+    title: "Call",
     lines: CONTACT.phones,
     href: CONTACT.tel,
   },
@@ -17,7 +17,7 @@ const cards = [
   },
   {
     icon: "location" as const,
-    title: "Visit us",
+    title: "Visit",
     lines: CONTACT.addressLines,
     href: CONTACT.mapLink,
   },
@@ -25,33 +25,33 @@ const cards = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="border-t border-stone-800/10 bg-stone-900 py-20 text-[var(--cream)] sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <AnimateIn>
-          <div className="max-w-2xl">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.45em] text-[var(--cream)]/50">
-              Contact
+    <section id="contact" className="bg-[var(--surface)] py-20 sm:py-28">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+        <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--accent)] via-[var(--accent-bright)] to-[#4c1d95] px-8 py-14 text-center sm:px-12 sm:py-16">
+          <AnimateIn>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/70">Contact</p>
+            <h2 className="mt-3 font-display text-5xl tracking-tight text-white sm:text-6xl">LET&apos;S TALK</h2>
+            <p className="mx-auto mt-4 max-w-md text-sm text-white/80">
+              {BRAND.wordmark} — here when you need us.
             </p>
-            <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">Let&apos;s talk</h2>
-            <p className="mt-4 text-[var(--cream)]/75">Call, email, or visit — {BRAND.wordmark} is here to help.</p>
-          </div>
-        </AnimateIn>
+          </AnimateIn>
+        </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {cards.map((c, i) => (
-            <AnimateIn key={c.title} delay={i * 0.08}>
+            <AnimateIn key={c.title} delay={i * 0.06}>
               <a
                 href={c.href}
                 target={c.icon === "location" ? "_blank" : undefined}
                 rel={c.icon === "location" ? "noopener noreferrer" : undefined}
-                className="block h-full border border-[var(--cream)]/15 bg-stone-800/40 p-8 transition hover:border-[var(--rust)] hover:bg-stone-800/60"
+                className="flex h-full flex-col rounded-2xl bg-[var(--surface-card)] p-8 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] ring-1 ring-black/[0.05] transition hover:-translate-y-0.5 hover:shadow-[0_16px_48px_-12px_rgba(91,33,182,0.15)]"
               >
-                <div className="flex h-11 w-11 items-center justify-center border border-[var(--cream)]/25">
-                  <Icon name={c.icon} size={22} color="#f7f4ec" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)]">
+                  <Icon name={c.icon} size={22} color="#5b21b6" />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-semibold">{c.title}</h3>
+                <h3 className="mt-5 font-display text-2xl tracking-tight text-[var(--void)]">{c.title}</h3>
                 {c.lines.map((line) => (
-                  <p key={line} className="mt-2 text-sm text-[var(--cream)]/65">
+                  <p key={line} className="mt-2 text-sm text-[var(--muted)]">
                     {line}
                   </p>
                 ))}
@@ -60,13 +60,13 @@ export function ContactSection() {
           ))}
         </div>
 
-        <AnimateIn delay={0.18}>
-          <div className="mt-12 overflow-hidden border border-[var(--cream)]/15">
+        <AnimateIn delay={0.15}>
+          <div className="mt-10 overflow-hidden rounded-2xl ring-1 ring-black/10">
             <div className="aspect-[21/9] min-h-[220px] w-full sm:aspect-[2.5/1] sm:min-h-[260px]">
               <iframe
                 title={`${BRAND.tradingName} office location`}
                 src={CONTACT.mapEmbedUrl}
-                className="h-full w-full border-0 opacity-90 contrast-[1.05] grayscale"
+                className="h-full w-full border-0 grayscale contrast-[1.02]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
